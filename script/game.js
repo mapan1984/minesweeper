@@ -26,7 +26,6 @@ class Game {
         this.girdCanvas.addEventListener('click', (e) => {
             let i = Math.floor(e.offsetX / this.gridSize)
             let j = Math.floor(e.offsetY / this.gridSize)
-            // log(i + ', ' + j)
             this.grid.explore(i, j)
         })
     }

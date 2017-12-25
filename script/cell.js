@@ -5,6 +5,7 @@ class Cell {
         this.width = width
         this.context = context
         this.content = null
+        this.revealed = false
     }
 
     draw() {
@@ -17,6 +18,7 @@ class Cell {
     }
 
     reveal() {
+        this.revealed = true
         if (this.content == -1) {
             this.context.beginPath()
             let radius = this.width / 2
