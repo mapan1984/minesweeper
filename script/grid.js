@@ -16,7 +16,7 @@ class Grid {
             for (let j = 0; j < this.nrows; j++) {
                 let cell = new Cell(i, j, this.gridSize, this.context)
                 if (probability(1, 10)) {
-                    cell.content = -1
+                    cell.content = '💣'
                     this.mines.push(cell)
                 }
                 col.push(cell)
@@ -44,7 +44,7 @@ class Grid {
                 if (x < 0 || x >= this.ncols || y < 0 || y >= this.nrows) {
                     continue
                 } else {
-                    if (this.cells[x][y].content == -1) {
+                    if (this.cells[x][y].content === '💣') {
                         sum++
                     }
                 }
@@ -56,7 +56,7 @@ class Grid {
     draw() {
         for (let col of this.cells) {
             for (let cell of col) {
-                cell.draw(this.context)
+                cell.draw()
             }
         }
     }
@@ -66,12 +66,13 @@ class Grid {
         if (cell.revealed) {
             return
         }
-        if (cell.content === -1) {
+        if (cell.content === '💣') {
             cell.reveal()
             for (let mine of this.mines) {
                 mine.reveal()
             }
-            alert('Boom!!!')
+            // delay problem
+            setTimeout("alert('Boom!!!')", 0)
         } else if (cell.content === 0) {
             cell.reveal()
             for (let i = -1; i <= 1; i++) {

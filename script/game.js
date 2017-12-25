@@ -18,8 +18,10 @@ class Game {
     }
 
     setup() {
-        this.gridContext.strokeStyle = "#12610f"
-        this.gridContext.fillStyle = "#FFA500"
+        this.gridContext.textAlign = "center"
+        this.gridContext.textBaseline = 'middle'
+        this.gridContext.fillStyle = "#757070"
+        this.gridContext.strokeStyle = "#0f0f0f"
     }
 
     listen() {
